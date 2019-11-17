@@ -1,0 +1,19 @@
+syntax = "proto3";
+
+package proto;
+
+service NameService {
+  rpc ConnectMessageServer (stream HeartBeat) returns (stream ConnectionInfo) {}
+}
+
+message HeartBeat{
+  ConnectionHeader header = 1;
+}
+
+message ConnectionInfo{
+  ConnectionHeader header = 1;
+}
+
+message ConnectionHeader {
+  string message_server_id = 1;
+}
