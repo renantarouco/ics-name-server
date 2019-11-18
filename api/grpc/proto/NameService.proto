@@ -4,6 +4,7 @@ package proto;
 
 service NameService {
   rpc ConnectMessageServer (stream HeartBeat) returns (stream ConnectionInfo) {}
+  rpc CreateRoom (CreateRoomRequest) returns (CreateRoomResponse) {}
 }
 
 message HeartBeat{
@@ -17,3 +18,9 @@ message ConnectionInfo{
 message ConnectionHeader {
   string message_server_id = 1;
 }
+
+message CreateRoomRequest {
+  string id = 1;
+}
+
+message CreateRoomResponse {}

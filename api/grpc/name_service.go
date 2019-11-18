@@ -16,9 +16,6 @@ func (s *NameServiceServer) ConnectMessageServer(stream proto.NameService_Connec
 		if err == io.EOF {
 			return nil
 		}
-		if err != nil {
-			return err
-		}
 		connectionInfo := &proto.ConnectionInfo{
 			Header: &proto.ConnectionHeader{
 				MessageServerId: "new",
